@@ -1,4 +1,6 @@
-/* see https://perldoc.perl.org/perlembed.html */
+/* WARNING: For perl-5.30.0 !!!! */
+/* check https://perldoc.perl.org/perlembed.html */
+
 #include <EXTERN.h>/* from the Perl distribution*/
 #include <perl.h>  /* from the Perl distribution*/
 static PerlInterpreter *my_perl;  /***    The Perl interpreter    ***/
