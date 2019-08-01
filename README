@@ -1,5 +1,14 @@
 Skeleton for building perlembed projects using Autotools.
 
+Quick starting:
+
+   sh bootstrap.sh && ./configure && make clean && make all
+
+If all goes well you will see your executable:
+
+   src/myperlembed
+
+
 There are two m4 macros which call
 
    perl -MExtUtils::Embed -e ccopts -e ldopts
