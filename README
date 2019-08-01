@@ -1,8 +1,14 @@
 Skeleton for building perlembed projects using Autotools.
 
-Quick starting:
+Quick starting in a unix system:
 
    sh bootstrap.sh && ./configure && make clean && make all
+
+If in a windows system just execute the
+autotools commands in <c>bootstrap.sh</c>
+manually or in a batch file. But seriously,
+wouldn't you be happier doing something else
+for a living?
 
 If all goes well you will see your executable:
 
