@@ -2,7 +2,7 @@ Skeleton for building perlembed projects using Autotools.
 
 Quick starting in a unix system:
 
-   sh bootstrap.sh && ./configure && make clean && make all
+    sh bootstrap.sh && ./configure && make clean && make all
 
 If in a windows system just execute the
 autotools commands in `bootstrap.sh`
@@ -72,7 +72,9 @@ call it like this:
     AX_PERL_EXT()
 
 This macro was written by
+
     Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+
     Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
 
 ---------------------------------------
@@ -131,7 +133,9 @@ to its LDFLAGS and you are good to go. See src/Makefile.am
 AUTHORS:
 
 m4 macro m4/ax_perl_ext.m4 (providing AX_PERL_EXT) was written by:
+
 Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+
 Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
 
 all the other files including m4 macro m4/ax_perl_embed_ext.m4
