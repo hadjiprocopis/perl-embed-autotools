@@ -5,10 +5,7 @@ Quick starting in a unix system:
    sh bootstrap.sh && ./configure && make clean && make all
 
 If in a windows system just execute the
-autotools commands in
-
-    bootstrap.sh
-
+autotools commands in `bootstrap.sh`
 manually or in a batch file. But seriously,
 wouldn't you be happier doing something else
 for a living?
@@ -21,7 +18,7 @@ Embedding a Perl interpreter into your C code opens a whole
 new can of possibilities for computer visionaries. And it's dead
 simple. See https://perldoc.perl.org/perlembed.html for more details
 but here is an example program in C which acts just like perl.exe:
-
+```
 #include <EXTERN.h>/* from the Perl distribution*/
 #include <perl.h>  /* from the Perl distribution*/
 static PerlInterpreter *my_perl;  /***    The Perl interpreter    ***/
@@ -38,7 +35,7 @@ int main(int argc, char **argv, char **env)
   PERL_SYS_TERM();
   exit(EXIT_SUCCESS);
 }
-
+```
 
 Compiling this simple program is not that simple.
 
@@ -87,12 +84,12 @@ Macro #2 : AX_PERL_EMBED_EXT (in m4/ax_perl_embed_ext.m4):
     PERL_EMBED_EXT_LDFLAGS: linker flags to build extensions
 
 call it like this:
-
+```
      AX_PERL_EMBED_EXT(
 	[HTML::Parser Net::IP:XS],
 	[-I... -I... -xyz -abc]
      )
-
+```
 This macro was written by Andreas Hadjiprocopis and is heavily based
 on AX_PERL_EXT (in m4/ax_perl_ext.m4).
 
