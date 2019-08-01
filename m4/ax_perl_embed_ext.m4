@@ -1,6 +1,3 @@
-# ===========================================================================
-#       https://www.gnu.org/software/autoconf-archive/ax_perl_ext.html
-# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -35,10 +32,17 @@
 #
 # LICENSE
 #
-# This is lightly modified version of AX_PERL_EXT all credit to the original authors
+# This is lightly modified version of AX_PERL_EXT
+# most credit shoudl go to the authors of AX_PERL_EXT
 #
-#   Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
-#   Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
+#   Stanislav Sedov <stas@FreeBSD.org>
+#   Thomas Klausner <tk@giga.or.at>
+#
+# and some credit to
+#
+#   Copyright (c) 2019 Andreas Hadjiprocopis <andreashad2@gmail.com> / <bliako@cpan.org>
+#
+# for modifying original code and expanding it to output a few more variables
 #
 #   Redistribution and use in source and binary forms, with or without
 #   modification, are permitted provided that the following conditions are
