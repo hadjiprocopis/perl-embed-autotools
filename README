@@ -1,0 +1,95 @@
+Skeleton for building perlembed projects using Autotools.
+
+There are two m4 macros which call
+
+   perl -MExtUtils::Embed -e ccopts -e ldopts
+
+parse the output and export these symbols:
+
+Macro #1 : AX_PERL_EXT (in m4/ax_perl_ext.m4):
+
+     PERL_EXT_PREFIX: top-level perl installation path (--prefix)
+     PERL_EXT_INC: XS include directory
+     PERL_EXT_LIB: Perl extensions destination directory
+     PERL_EXT_CPPFLAGS: C preprocessor flags to compile extensions
+     PERL_EXT_LDFLAGS: linker flags to build extensions
+     PERL_EXT_DLEXT: extensions suffix for perl modules (e.g. ".so")
+
+call it like this:
+
+     AX_PERL_EXT()
+
+This macro was written by
+   Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+   Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
+
+---------------------------------------
+
+Macro #2 : AX_PERL_EMBED_EXT (in m4/ax_perl_embed_ext.m4):
+
+     PERL_EMBED_EXT_CC: the CC used to compile perl, you need to use this for compiling your app
+     PERL_EMBED_EXT_CPPFLAGS: C preprocessor flags to compile extensions
+     PERL_EMBED_EXT_LDFLAGS: linker flags to build extensions
+
+call it like this:
+
+     AX_PERL_EMBED_EXT(
+	[HTML::Parser Net::IP:XS],
+	[-I... -I... -xyz -abc]
+     )
+
+This macro was written by Andreas Hadjiprocopis and is heavily based
+on AX_PERL_EXT (in m4/ax_perl_ext.m4).
+
+The first parameter is a SPACE-separated list of modules to compile
+with your application ONLY in the case that you are linking statically.
+Otherwise leave this empty (e.g. [])
+The second parameter is a SPACE-separated list of parameters to the perl
+executing:
+
+    perl -MExtUtils::Embed -e ccopts -e ldopts
+
+This is in the case when you are using another perl and you have different INC
+for example. If you are building for your current perl, then leave this empty
+(e.g. []). If you are building for another perl which is not default then
+make it default e.g. by using perlbrew. If you do that then you can
+leave this parameter empty too. So, normally you call this macro like:
+
+    AX_PERL_EMBED_EXT([],[])
+
+Suppose that you want to compile perl-embed file
+    myperlembed.c
+
+in subdir
+   src
+
+Then simply add 
+
+    -I$(PERL_EXT_INC)
+
+to its CFLAGS
+
+and
+
+    $(PERL_EMBED_EXT_LDFLAGS)
+
+to its LDFLAGS and you are good to go. See src/Makefile.am
+
+
+AUTHORS:
+
+m4 macro m4/ax_perl_ext.m4 (providing AX_PERL_EXT) was written by:
+Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
+
+all the other files including m4 macro m4/ax_perl_embed_ext.m4
+providing AX_PERL_EMBED_EXT was written by
+
+Andreas Hadjiprocopis (andreashad2@gmail.com / bliako@cpan.org)
+
+This work is provided as is under GPL v3.
+
+
+Andreas,
+
+Jan 2019 - Banana Republic.
