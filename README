@@ -8,6 +8,17 @@ If all goes well you will see your executable:
 
    src/myperlembed
 
+The problem in compiling perl-embedding code is that there
+are a lot of CFLAGS and LDFLAGS which need to be passed
+to the compiler in order to find all the dependency libraries
+and include files. Additionally, it must find which compiler
+was used to compile the original perl and use this same
+compiler for compiling your code. Finally, there is the
+decision whether this will be a static- or dynamic-linking
+build. Static is the most useful for distribution and notoriously
+difficult because all modules any perl scripts interpreted by
+your perl-embedding code must be statically compiled too and
+embedded into the final perl-embedding executable!
 
 There are two m4 macros which call
 
@@ -52,7 +63,8 @@ on AX_PERL_EXT (in m4/ax_perl_ext.m4).
 
 The first parameter is a SPACE-separated list of modules to compile
 with your application ONLY in the case that you are linking statically.
-Otherwise leave this empty (e.g. [])
+Otherwise leave this first parameter empty (e.g. [])
+
 The second parameter is a SPACE-separated list of parameters to the perl
 executing:
 
