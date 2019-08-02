@@ -133,9 +133,9 @@ call it like this:
 
 This macro was written by
 
-    Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+    Stanislav Sedov <stas@FreeBSD.org>
 
-    Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
+    Thomas Klausner <tk@giga.or.at>
 
 ---------------------------------------
 
@@ -194,14 +194,14 @@ AUTHORS:
 
 m4 macro m4/ax_perl_ext.m4 (providing AX_PERL_EXT) was written by:
 
-Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+    Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
 
-Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
+    Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
 
 all the other files including m4 macro m4/ax_perl_embed_ext.m4
-providing AX_PERL_EMBED_EXT was written by
+providing AX_PERL_EMBED_EXT was written by:
 
-Andreas Hadjiprocopis (andreashad2@gmail.com / bliako@cpan.org)
+    Andreas Hadjiprocopis (andreashad2@gmail.com / bliako@cpan.org)
 
 This work is provided as is under GPL v3.
 
