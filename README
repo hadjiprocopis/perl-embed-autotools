@@ -19,7 +19,7 @@ If all goes well you will see your executable:
 
 corresponding to the C program embedding a perl interpreter
 
-    sec/myperlembed.c
+    src/myperlembed.c
 
 Embedding a Perl interpreter into your C code opens a whole
 new can of possibilities for computer visionaries. And it's dead
