@@ -14,6 +14,10 @@ If all goes well you will see your executable:
 
     src/myperlembed
 
+corresponding to the C program embedding a perl interpreter
+
+    sec/myperlembed.c
+
 Embedding a Perl interpreter into your C code opens a whole
 new can of possibilities for computer visionaries. And it's dead
 simple. See https://perldoc.perl.org/perlembed.html for more details
@@ -54,6 +58,59 @@ build. Static is the most useful for distribution and notoriously
 difficult because all modules any perl scripts interpreted by
 your perl-embedding code must be statically compiled too and
 embedded into the final perl-embedding executable!
+
+This skeleton takes care of the nitty-gritty job of
+enquiring CFLAGS and LDFLAGS and CC for compiling your
+perl-embeding programs.
+
+You can use 
+
+    configure.ac
+
+and
+
+    Makefile.am
+
+as they are, without any modifications. This will compile
+
+    src/myperlembed.c
+
+ideally successfully.
+
+If you want to add more C programs simply add them to the
+
+    src/Makefile.am
+
+If you want a more complex project structure whereas src/ has subdirs
+and so on, then that's simple too but you better read more on Autotools.
+Your kilometerage may vary by just adding subdirs in top-level's
+
+    Makefile.am
+
+and for each of these subdirs have a Makefile.am styled along the lines of
+
+    src/Makefile.am
+
+You will have to modify slightly
+
+    configure.ac
+
+if you renamed src/ dir or src/myperlembed.c . Just search for these
+and modify accordingly.
+
+You may think this is hard work but it is not because you will only
+have to do this once and then your project will be portable anywhere
+the GNU Build System is in use or can be used by simple installation.
+Yes even for windows. Just make a tarball of your project, untar in
+another system and the usual:
+
+    sh bootstrap.sh && ./configure && make clean && make all
+
+will get you going guaranteed.
+
+-----------------------------------
+
+Now some details which you can do without.
 
 There are two m4 macros which call
 
