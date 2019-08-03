@@ -132,9 +132,11 @@ and
     ExtUtils::Embed::xsinit 
 
 Be warned that this is not as a robust solution as Autotools meaning
-that you will have to modify it if you want to add more complex targets,
+that you will have to modify it heavily    
+if you want to add more complex targets,
 for example building binary libraries from your C code and linking your
-perl-embeding code to them or even installing your executables.
+perl-embeding code to them or even installing your executables. With
+doubtful results.
 
 It's just a convenient and familiar-for-most way to compile C programs
 but it is not the natural way and presented here in the spirit
