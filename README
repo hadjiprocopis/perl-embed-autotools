@@ -48,8 +48,8 @@ int main(int argc, char **argv, char **env)
 
 Compiling this simple program is not that simple.
 
-The problem in compiling perl-embedding code, such as the above,
-is that there
+The problem in compiling perl-embedding code,
+such as the above, is that there
 are a lot of CFLAGS and LDFLAGS which need to be passed
 to the compiler in order to find all the dependency libraries
 and include files. Additionally, it must find which compiler
@@ -63,9 +63,7 @@ embedded into the final perl-embedding executable!
 
 This skeleton takes care of the nitty-gritty job of
 enquiring CFLAGS and LDFLAGS and CC for compiling your
-perl-embeding programs.
-
-You can use 
+perl-embeding programs. Which means that you can use 
 
     configure.ac
 
@@ -73,13 +71,13 @@ and
 
     Makefile.am
 
-as they are, without any modifications. This will compile
+as they are, without any modifications, in order to compile
 
     src/myperlembed.c
 
-ideally successfully.
+painlessly and, hopefully, successfully.
 
-If you want to add more C programs simply add them to the
+If you want to add more C programs simply add them to the file
 
     src/Makefile.am
 
@@ -93,12 +91,12 @@ and for each of these subdirs have a Makefile.am styled along the lines of
 
     src/Makefile.am
 
-You will have to modify slightly
+If you renamed src/ dir or src/myperlembed.c, then
+you will have to modify slightly
 
     configure.ac
 
-if you renamed src/ dir or src/myperlembed.c . Just search for these
-and modify accordingly.
+Just search for these files/dirs and modify accordingly.
 
 You may think this is hard work but it is not because you will only
 have to do this once and then your project will be portable anywhere
@@ -109,6 +107,40 @@ another system and the usual:
     sh bootstrap.sh && ./configure && make clean && make all
 
 will get you going guaranteed.
+
+-----------------------------------
+
+However, for the faint hearted I have also created a
+
+    Makefile.PL
+
+This uses ExtUtils::MakeMaker to produce a Makefile which will
+then compile your perl-embeding code. In the
+
+    postamble
+
+section of
+
+    Makefile.PL
+
+you will see how the compilation variables are extracted via Perl's
+
+    %Config
+
+and
+
+    ExtUtils::Embed::ccopts 
+    ExtUtils::Embed::ldopts 
+    ExtUtils::Embed::xsinit 
+
+Be warned that this is not as a robust solution as Autotools meaning
+that you will have to modify it if you want to add more complex targets,
+for example building binary libraries from your C code and linking your
+perl-embeding code to them or even installing your executables.
+
+It's just a convenient and familiar-for-most way to compile C programs
+but it is not the natural way and presented here in the spirit
+of TIMTOWTDI which makes Perl and Perl Hackers shine.
 
 -----------------------------------
 
